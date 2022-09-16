@@ -84,13 +84,18 @@ const TasksForm = () => {
           </button>
         </li>
       ) : (
-        <button
-          type="button"
-          className="add-task-fixed"
-          onClick={() => setIsVisible(!isVisible)}
-        >
-          <i className="fa-solid fa-plus"></i>{" "}
-        </button>
+        <div>
+          <button type="button" className="fresh" onClick={() => getApi()}>
+            <i className="fa-solid fa-arrows-rotate"></i>
+          </button>
+          <button
+            type="button"
+            className="add-task-fixed"
+            onClick={() => setIsVisible(!isVisible)}
+          >
+            <i className="fa-solid fa-plus"></i>{" "}
+          </button>
+        </div>
       )}
       {tasks.map((task) => (
         <TaskCard task={task} getApi={getApi} key={task.id_task} />

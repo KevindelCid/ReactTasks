@@ -44,7 +44,7 @@ const TaskCard = ({ task, getApi }) => {
           });
         }}
       >
-        <i class="fa-regular fa-pen-to-square"></i> Edit
+        <i className="fa-regular fa-pen-to-square"></i> Edit
       </button>
       <br />
     </li>
