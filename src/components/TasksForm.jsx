@@ -43,7 +43,8 @@ const TasksForm = () => {
 
           <label htmlFor="description">Description</label>
           <br />
-          <input type="text" id="description" {...register("description")} />
+
+          <textarea id="description" {...register("description")}></textarea>
           <br />
           <label htmlFor="title">Start:</label>
           <br />
@@ -63,7 +64,9 @@ const TasksForm = () => {
           />
           <br />
 
-          <button className="btn-create">Crear nueva tarea</button>
+          <button className="btn-create">
+            <i className="fa-solid fa-plus"></i> Create Task
+          </button>
         </form>
       </li>
 

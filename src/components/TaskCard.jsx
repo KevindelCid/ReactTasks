@@ -44,7 +44,7 @@ const TaskCard = ({ task, getApi }) => {
           });
         }}
       >
-        Edit
+        <i class="fa-regular fa-pen-to-square"></i> Edit
       </button>
       <br />
     </li>
@@ -61,7 +61,9 @@ const TaskCard = ({ task, getApi }) => {
         <br />
         <label htmlFor="description">Description:</label>
         <br />
-        <input id="description" {...register("description")} />
+
+        <textarea id="description" {...register("description")}></textarea>
+
         <br />
         <label htmlFor="title">Start:</label>
         <br />
@@ -80,7 +82,9 @@ const TaskCard = ({ task, getApi }) => {
           {...register("color")}
         />
         <br />
-        <button className="btn-edit">Update</button>
+        <button className="btn-edit">
+          <i className="fa-regular fa-pen-to-square"></i> Update
+        </button>
       </form>
 
       <button
@@ -88,10 +92,10 @@ const TaskCard = ({ task, getApi }) => {
         type="button"
         onClick={() => setIsInput(false)}
       >
-        Cancel
+        <i className="fa-solid fa-ban"></i> Cancel
       </button>
       <button className="btn-delete" type="button" onClick={deleteTask}>
-        Delete
+        <i className="fa-solid fa-trash"></i> Delete
       </button>
       <br />
     </li>
