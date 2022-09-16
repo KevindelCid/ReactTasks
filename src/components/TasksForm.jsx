@@ -6,6 +6,7 @@ const TasksForm = () => {
   const { register, handleSubmit, reset } = useForm();
   const [tasks, setTasks] = useState([]);
   const [isInput, setIsInput] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const clear = () => {
     reset({
@@ -19,6 +20,7 @@ const TasksForm = () => {
       .then(() => {
         clear();
         getApi();
+        setIsVisible(false);
       })
       .catch((error) => console.log(error.response));
   };
@@ -33,43 +35,63 @@ const TasksForm = () => {
 
   return (
     <ul className="card-task-container">
-      <li className="card-task">
-        <form onSubmit={handleSubmit(submit)}>
-          <h1>Create Tasks</h1>
+      {isVisible ? (
+        <li className="card-task create-task-pop">
+          <form onSubmit={handleSubmit(submit)}>
+            <h1>Create Tasks</h1>
 
-          <label htmlFor="title">Title:</label>
-          <br />
-          <input type="text" id="title" {...register("title")} />
+            <div className="inputs-1">
+              <label htmlFor="title">Title:</label>
+              <input type="text" id="title" {...register("title")} />
 
-          <label htmlFor="description">Description</label>
-          <br />
+              <label htmlFor="description">Description</label>
 
-          <textarea id="description" {...register("description")}></textarea>
-          <br />
-          <label htmlFor="title">Start:</label>
-          <br />
-          <input type="date" id="start" {...register("start")} />
-          <br />
-          <label htmlFor="end">End:</label>
-          <br />
-          <input type="date" id="end" {...register("end")} />
-          <br />
-          <label htmlFor="title">Color:</label>
-          <br />
-          <input
-            className="color-input"
-            type="color"
-            id="color"
-            {...register("color")}
-          />
-          <br />
+              <textarea
+                id="description"
+                {...register("description")}
+              ></textarea>
+            </div>
+            <div className="inputs-2">
+              <div className="date">
+                <label htmlFor="title">Start:</label>
 
-          <button className="btn-create">
-            <i className="fa-solid fa-plus"></i> Create Task
+                <input type="date" id="start" {...register("start")} />
+              </div>
+              <div className="date">
+                <label htmlFor="end">End:</label>
+
+                <input type="date" id="end" {...register("end")} />
+              </div>
+            </div>
+
+            <label htmlFor="title">Color:</label>
+
+            <input
+              className="color-input"
+              type="color"
+              id="color"
+              {...register("color")}
+            />
+            <br />
+
+            <button className="btn-create">Create Task</button>
+          </form>
+          <button
+            className="btn-cancel"
+            onClick={() => setIsVisible(!isVisible)}
+          >
+            <i className="fa-solid fa-ban"></i> Cancelar
           </button>
-        </form>
-      </li>
-
+        </li>
+      ) : (
+        <button
+          type="button"
+          className="add-task-fixed"
+          onClick={() => setIsVisible(!isVisible)}
+        >
+          <i className="fa-solid fa-plus"></i>{" "}
+        </button>
+      )}
       {tasks.map((task) => (
         <TaskCard task={task} getApi={getApi} key={task.id_task} />
       ))}
