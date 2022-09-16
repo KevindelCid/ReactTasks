@@ -42,7 +42,7 @@ const TasksForm = () => {
 
             <div className="inputs-1">
               <label htmlFor="title">Title:</label>
-              <input type="text" id="title" {...register("title")} />
+              <input required type="text" id="title" {...register("title")} />
 
               <label htmlFor="description">Description</label>
 

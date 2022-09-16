@@ -57,7 +57,7 @@ const TaskCard = ({ task, getApi }) => {
       <form onSubmit={handleSubmit(submit)}>
         <label htmlFor="title">Title:</label>
         <br />
-        <input type="text" id="title" {...register("title")} />
+        <input required type="text" id="title" {...register("title")} />
         <br />
         <label htmlFor="description">Description:</label>
         <br />
