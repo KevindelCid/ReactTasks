@@ -8,7 +8,7 @@ const TaskCard = ({ task, getApi }) => {
 
   const submit = (data) => {
     axios
-      .put(`http://127.0.0.1:8000/api/tasks/${task.id_task}`, data)
+      .put(`https://dannitasks.herokuapp.com/api/tasks/${task.id_task}`, data)
       .then(() => {
         setIsInput(false);
         getApi();
@@ -18,7 +18,7 @@ const TaskCard = ({ task, getApi }) => {
 
   const deleteTask = () => {
     axios
-      .delete(`http://127.0.0.1:8000/api/tasks/${task.id_task}`)
+      .delete(`https://dannitasks.herokuapp.com/api/tasks/${task.id_task}`)
       .then(() => getApi());
   };
   return !isInput ? (

@@ -15,7 +15,7 @@ const TasksForm = () => {
   };
   const submit = (data) => {
     axios
-      .post("http://127.0.0.1:8000/api/tasks", data)
+      .post("https://dannitasks.herokuapp.com/api/tasks", data)
       .then(() => {
         clear();
         getApi();
@@ -26,7 +26,7 @@ const TasksForm = () => {
     getApi();
   }, []);
   const getApi = () => {
-    axios.get("http://127.0.0.1:8000/api/tasks").then((res) => {
+    axios.get("https://dannitasks.herokuapp.com/api/tasks").then((res) => {
       setTasks(res.data);
     });
   };
