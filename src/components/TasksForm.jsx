@@ -16,7 +16,7 @@ const TasksForm = () => {
   };
   const submit = (data) => {
     axios
-      .post("https://dannitasks.herokuapp.com/api/tasks", data)
+      .post("https://laraveltasks.fly.dev/api/tasks", data)
       .then(() => {
         clear();
         getApi();
@@ -28,7 +28,7 @@ const TasksForm = () => {
     getApi();
   }, []);
   const getApi = () => {
-    axios.get("https://dannitasks.herokuapp.com/api/tasks").then((res) => {
+    axios.get("https://laraveltasks.fly.dev/api/tasks").then((res) => {
       setTasks(res.data);
     });
   };

@@ -8,7 +8,7 @@ const TaskCard = ({ task, getApi }) => {
 
   const submit = (data) => {
     axios
-      .put(`https://dannitasks.herokuapp.com/api/tasks/${task.id_task}`, data)
+      .put(`https://laraveltasks.fly.dev/api/tasks/${task.id_task}`, data)
       .then(() => {
         setIsInput(false);
         getApi();
@@ -18,7 +18,7 @@ const TaskCard = ({ task, getApi }) => {
 
   const deleteTask = () => {
     axios
-      .delete(`https://dannitasks.herokuapp.com/api/tasks/${task.id_task}`)
+      .delete(`https://laraveltasks.fly.dev/api/tasks/${task.id_task}`)
       .then(() => getApi());
   };
   return !isInput ? (
