@@ -36,7 +36,7 @@ const TaskCard = ({ task, getApi }) => {
           setIsInput(true);
 
           reset({
-            title: task.title_task,
+            title_task: task.title_task,
             description: task.description,
             start: task.start,
             end: task.end,
